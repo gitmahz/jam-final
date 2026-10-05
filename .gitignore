@@ -1,0 +1,34 @@
+# Build/output files
+bin/
+build/
+*.exe
+*.obj
+*.pdb
+*.o
+*.a
+*.dll
+
+# Odin build/output
+*.bin
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.log
+*~
+
+# Game-specific generated files
+scores.dat
+
+# Local README
+README.md
