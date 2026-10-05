@@ -1,5 +1,6 @@
 session,date,minutes,tool,model,tokens_in,tokens_out,tokens_source,prompts,features,llm_helpfulness,notes
-1,2026-10-03,120,claude-web,claude-sonnet-5.5,,,unavailable,12,base game;ricochet;ghost replay (dropped);mirror clone;shield pickup;endless mode;scoreboard;side panel;boss;difficulty tuning,4,"Best: ricochet and clone added fast in small edits. Worst: the game came out too difficult so had to fine tune.
-2,date,minutes,tool,model,tokens_in,tokens_out,tokens_source,prompts,features,llm_helpfulness,notes
+1,2026-10-03,130,claude-web,claude-sonnet-5.5,,,unavailable,12,base game;ricochet;ghost replay (dropped);mirror clone;shield pickup;endless mode;scoreboard;side panel;boss;difficulty tuning,4,"Best: ricochet and clone added fast in small edits. Worst: the game came out too difficult so had to fine tune.
+2,2026-10-04,90,claude-web,claude-sonnet-5.5,,,unavailable,12,health drop;no-ricochet power-up with side counter and popup;bomb drop (plant + fuse + radius blast);freeze drop;boss upgrade menu (6 options);clone bullets no longer ricochet;drop rates scale with time;speed drop,4,"Best: each new pickup was a small edit that followed the existing shield pattern. Worst: the model could not compile or run the game, so everything needed my own testing. One request also had to be re-sent after it was misread (player size vs bullet size)."
 3,2026-10-04,70,claude-web,claude-sonnet-5.5,,,unavailable,10,sprites;aim-rotation;background,5,"best: fixed a whole batch of compile errors in one pass; worst: ship rotation took three tries and the background image would not load"
+4,2026-10-04,20,claude-web,claude-sonnet-5.5,,,unavailable,10,sounds;final-touch ups ,5,"best: helped me incorporate a sound feature; worst: took some time debugging"
 

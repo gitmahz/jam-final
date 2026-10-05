@@ -1,35 +1,35 @@
 ---
 # ---- Fill every field. Use `unavailable` (with a reason in tokens_source) rather than guessing. ----
-game_title: ""
-twist_one_liner: ""            # "ARENA, but ..."
-twist_category: ""             # rule-bender | enemies | player-progression | world | other
-twist_from_ideas_list: no      # yes | adapted | no
-how_far_from_arena: ""         # small-twist | substantial | barely-recognizable
+game_title: "Space Mini Arena"
+twist_one_liner: "ARENA, but ricochet mechanic in space"            # "ARENA, but ..."
+twist_category: "| shooter | enemies | boss | points system | health bar | level ups (with trade offs) | strategy |"             # rule-bender | enemies | player-progression | world | other
+twist_from_ideas_list: yes      # yes | adapted | no
+how_far_from_arena: "substantial"         # small-twist | substantial | barely-recognizable
 
 # Tools and models (lists; exact names as the tool shows them)
-tools: []                      # e.g. [claude-code, chatgpt-web]
-models: []                     # e.g. [claude-sonnet-5, gpt-5-mini]
-primary_model: ""              # the one that did most of the work
-plan: ""                       # free | student | paid-personal | api | none
+tools: [claude-web]                      # e.g. [claude-code, chatgpt-web]
+models: [claude-sonnet-5]                     # e.g. [claude-sonnet-5, gpt-5-mini]
+primary_model: "claude-sonnet-5"              # the one that did most of the work
+plan: "free"                       # free | student | paid-personal | api | none
 agent_instructions_file: no    # yes | no  (CLAUDE.md, AGENTS.md, .cursorrules, ...)
 
 # Totals (must match jam-log.csv)
-sessions: 0
+sessions: 4
 total_minutes: 0
 total_prompts: 0
-total_tokens_in: 0             # or unavailable
-total_tokens_out: 0            # or unavailable
-tokens_source: ""              # ccusage | cost-command | dashboard | cli-summary | estimated | unavailable (+ why)
+total_tokens_in: unavailable             # or unavailable
+total_tokens_out: unavailable            # or unavailable
+tokens_source: "unavailable (used claude web)"              # ccusage | cost-command | dashboard | cli-summary | estimated | unavailable (+ why)
 
 # Your estimate of who wrote the code in the final build (should add to 100)
-code_share_llm_pct: 0          # accepted from an LLM with little or no change
+code_share_llm_pct: claude web (95%)          # accepted from an LLM with little or no change
 code_share_mixed_pct: 0        # LLM-generated then substantially edited by you
-code_share_hand_pct: 0         # written by you
+code_share_hand_pct: 5%         # written by you
 
 # Before this jam
-odin_experience_before: ""     # none | under-10h | 10-50h | over-50h
-llm_coding_before: ""          # never | occasional | weekly | daily
-gamedev_experience_before: ""  # none | a-tutorial | a-few-small-games | shipped-something
+odin_experience_before: none     # none | under-10h | 10-50h | over-50h
+llm_coding_before: occasional          # never | occasional | weekly | daily
+gamedev_experience_before: none  # none | a-tutorial | a-few-small-games | shipped-something
 
 transcripts_shared: no         # yes | no  (optional, ungraded)
 ---
@@ -49,6 +49,8 @@ One paragraph: what your game is and how to play it. Then what you **kept**,
 **expert** does differently from a beginner. Use what you saw players do at
 the Monday showcase as evidence.
 
+My arena is a shooter game with a theme of space. It main idea is that the player is the main ufo shooter, and it defeats alien ufos that are chasing it. If it crashes into an alien ufo it loses health. 
+
 ## 2. Your setup
 
 Which tools and models, and **why** those (cost, familiarity, a friend's
@@ -65,17 +67,20 @@ without changes? `help` = 1 (got in the way) - 5 (did it well).
 
 | feature | who | prompts | first try? | minutes | help 1-5 | note |
 |---|---|--:|---|--:|:--:|---|
-| window, loop, game states, restart | | | | | | |
-| player movement | | | | | | |
-| shooting | | | | | | |
-| enemies and spawning | | | | | | |
-| health, damage, hit feedback | | | | | | |
-| difficulty over time | | | | | | |
-| HUD | | | | | | |
-| (optional) sprites / sound | | | | | | |
-| *your feature* | | | | | | |
-| *your feature* | | | | | | |
-| *your feature* | | | | | | |
+| window, loop, game states, restart | claude-web | 1 | yes | 10 | 4 | helped a lot with base code |
+| player movement | claude-web | 1 | yes | 10 | 5 | |
+| shooting | claude-web | 2 | no | 15 | 5 | |
+| enemies and spawning | mixed | 2 | no | 20 | 3 | |
+| health, damage, hit feedback | mixed | 3 | no | 15 | 2| |
+| difficulty over time | claude-web | 5 | yes | 50 | 4 | |
+| HUD | claude-web | 4 | yes | 20 | 5 | |
+| (optional) sprites / sound | mixed | 2 | yes | 30 | 4| i found the sprites/sound, asked claude how to incorporate in code|
+| ricochet off walls | claude-web | 2 | yes | 25 | 5 | |
+| clone addition | mixed | 2 | no | 20 | 3 | took time to get this feature right|
+| random drops (sheild, speed up, additional health, freeze, bomb) | mixed | 8 | no | 30 | 4 | |
+| power up (ricochet off) | claude-web | 1 | yes | 5 | 5 | |
+| boss (boss power ups when defeated boss) | claude-web | 3 | yes | 30 | 5 | |
+| scoreboard | claude-web | 1 | yes | 5 | 5 | |
 
 ## 4. Where the LLM sped you up
 
