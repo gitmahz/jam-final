@@ -44,8 +44,6 @@ Player :: struct {
 	aim_angle:   f32, // degrees; direction of the last shot, used to rotate the sprite
 }
 
-SHOOT_VOICES :: 6
-
 Assets :: struct {
     background: rl.Texture2D,
 	player:  rl.Texture2D,
@@ -53,8 +51,6 @@ Assets :: struct {
 	boss:    rl.Texture2D,
 	bullet:  rl.Texture2D,
     shoot_sfx:  rl.Sound,
-    shoot_alias:    [SHOOT_VOICES]rl.Sound,
-	shoot_next:     int,
 }
 
 assets: Assets
@@ -65,11 +61,9 @@ load_assets :: proc() {
 	assets.enemy  = rl.LoadTexture("assets/ufo_game_art/enemy_1.png")
 	assets.boss   = rl.LoadTexture("assets/ufo_game_art/boss_0.png")
 	assets.bullet = rl.LoadTexture("assets/ufo_game_art/player_shot_0.png")
-	assets.shoot_sfx = rl.LoadSound("assets/sounds/laserShoot.wav")
-	for i in 0 ..< SHOOT_VOICES {
-		assets.shoot_alias[i] = rl.LoadSoundAlias(assets.shoot_sfx)
-		rl.SetSoundVolume(assets.shoot_alias[i], 0.4)
-	}
+    assets.shoot_sfx = rl.LoadSound("assets/sounds/laserShoot.wav")
+	rl.SetSoundVolume(assets.shoot_sfx, 0.4) // shooting is frequent, so keep it quiet
+
 }
 
 unload_assets :: proc() {
@@ -78,16 +72,7 @@ unload_assets :: proc() {
 	rl.UnloadTexture(assets.enemy)
 	rl.UnloadTexture(assets.boss)
 	rl.UnloadTexture(assets.bullet)
-	for i in 0 ..< SHOOT_VOICES {
-		rl.UnloadSoundAlias(assets.shoot_alias[i])
-	}
-	rl.UnloadSound(assets.shoot_sfx)
-}
-
-play_shoot :: proc() {
-	rl.SetSoundPitch(assets.shoot_alias[assets.shoot_next], 0.9 + rand_f32() * 0.2) // slight variation
-	rl.PlaySound(assets.shoot_alias[assets.shoot_next])
-	assets.shoot_next = (assets.shoot_next + 1) % SHOOT_VOICES
+    rl.UnloadSound(assets.shoot_sfx)
 }
 
 // Draw a texture centred on `pos`, scaled so its width/height span 2*radius.
